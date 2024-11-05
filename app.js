@@ -26,3 +26,7 @@ app.get('/posts/:slug', (req, res) => {
     }
     return res.status(200).json({ data: post })
   });
+
+  const postController = require('./controllers/postController');
+
+  app.get('/posts', postController.index);
