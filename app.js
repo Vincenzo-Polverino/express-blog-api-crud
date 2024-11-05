@@ -9,3 +9,4 @@ app.listen(3000, () => {
 });
 
 app.use('/posts', postRoutes)
+app.use(express.json())
