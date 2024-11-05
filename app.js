@@ -12,3 +12,4 @@ app.listen(3000, () => {
   const postController = require('./controllers/postController');
 
   app.get('/posts', postController.index);
+  app.get('/posts/:slug', postController.show)
