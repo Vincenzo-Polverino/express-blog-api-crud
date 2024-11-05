@@ -27,9 +27,14 @@ const show = (req, res) => {
 }
 
 
+const store = (req, res) =>{
+    console.log(req.body);
+    
+}
 
 
 module.exports = {
     index,
-    show
+    show,
+    store
 }
