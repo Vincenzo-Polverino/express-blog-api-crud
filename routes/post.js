@@ -6,4 +6,5 @@ router.get('/', postController.index);
 router.get('/:slug', postController.show)
 router.post("/posts", postController.store)
 
+
 module.exports = router

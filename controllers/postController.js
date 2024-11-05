@@ -1,4 +1,5 @@
 const posts = require('../database/db.js')
+const fs = require('fs')
 
 const index = (req, res) => {
     let markup = `
