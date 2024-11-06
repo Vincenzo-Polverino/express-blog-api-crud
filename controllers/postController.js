@@ -28,10 +28,10 @@ const show = (req, res) => {
 }
 
 
-const store = (req, res) =>{
+const store = (req, res) => {
     const post = {
         title: req.body.title,
-        slug:req.body.slug,
+        slug: req.body.slug,
         content: req.body.content,
         image: req.body.image,
         tags: req.body.tags
@@ -39,7 +39,7 @@ const store = (req, res) =>{
     posts.push(post)
 
     fs.writeFileSync('./database/db.js',
-     `module.exports =${JSON.stringify(posts, null, 4)}`)
+        `module.exports =${JSON.stringify(posts, null, 4)}`)
 
 
     return res.status(201).json({
@@ -48,12 +48,35 @@ const store = (req, res) =>{
         count: posts.length
 
     })
-    
+
 }
 
+const update = (req, res) => {
+
+    const post = posts.find(post => post.slug.toLowerCase() === req.params.slug)
+    if (!post) {
+        return res.status(404).json({
+            error: `No post found wit ${req.params.slug} slug`
+        })
+    }
+        post.title = req.body.title,
+        post.slug = req.body.slug,
+        post.content = req.body.content,
+        post.image = req.body.image,
+        post.tags = req.body.tags
+
+    fs.writeFileSync('./database/db.js', `module.exports =${JSON.stringify(posts, null, 4)}`)
+
+    res.status(200).json({
+        status: 200,
+        data: posts
+    })
+
+}
 
 module.exports = {
     index,
     show,
-    store
+    store,
+    update
 }
