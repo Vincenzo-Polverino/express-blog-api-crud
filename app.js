@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 const postRoutes = require('./routes/post')
+const not_found = require('./middlewares/not_found.js')
 
-app.use(express.static('/public'))
 app.use(express.json());
+app.use(express.static('/public'))
+app.use('/posts', postRoutes)
+app.use(not_found)
+
 app.listen(3000, () => {
     console.log("Server started on port 3000")
 });
-
-app.use('/posts', postRoutes)
-app.use(express.json())
