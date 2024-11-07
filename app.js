@@ -2,9 +2,11 @@ const express = require('express')
 const app = express()
 const postRoutes = require('./routes/post')
 const not_found = require('./middlewares/not_found.js')
+const logger = require('./middlewares/logger.js')
 
 app.use(express.json());
 app.use(express.static('/public'))
+app.use('/posts', logger)
 app.use('/posts', postRoutes)
 app.use(not_found)
 
