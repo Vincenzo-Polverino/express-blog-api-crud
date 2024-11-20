@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const index = (req, res) => {
     let markup = `
-        <ul>
+         res.json
             ${posts.map(post => `
                 <li>
                     <h2>${post.title}</h2>
@@ -13,7 +13,8 @@ const index = (req, res) => {
             `).join('')}
         </ul>
     `;
-    res.send(markup);
+    //res.send(markup);
+    res.json(posts)
 };
 
 
@@ -59,7 +60,7 @@ const update = (req, res) => {
             error: `No post found wit ${req.params.slug} slug`
         })
     }
-        post.title = req.body.title,
+    post.title = req.body.title,
         post.slug = req.body.slug,
         post.content = req.body.content,
         post.image = req.body.image,
