@@ -11,7 +11,7 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(express.json());
-app.use(express.static('/public'))
+app.use(express.static('public'))
 app.use('/posts', logger)
 app.use('/posts', postRoutes)
 app.use(not_found)
