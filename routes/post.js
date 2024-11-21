@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const postController = require('../controllers/postController');
+const app = express();
+
+
 
 router.get('/', postController.index);
 router.post('/', postController.store)

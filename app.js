@@ -7,6 +7,8 @@ const logger = require('./middlewares/logger.js')
 /*app.use('/posts', (req, res, next) => {
     throw new Error("Hai rotto tutto!");
   }); */
+const cors = require('cors');
+app.use(cors());
 
 app.use(express.json());
 app.use(express.static('/public'))

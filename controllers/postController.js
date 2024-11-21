@@ -2,19 +2,22 @@ const posts = require('../database/db.js')
 const fs = require('fs')
 
 const index = (req, res) => {
-    let markup = `
-         res.json
-            ${posts.map(post => `
-                <li>
-                    <h2>${post.title}</h2>
-                    <p>${post.content}</p>
-                    <img src="${post.image}" alt="${post.title}" style="width:200px;height:auto;">
-                </li>
-            `).join('')}
-        </ul>
-    `;
+    // let markup = `
+    //      res.json
+    //         ${posts.map(post => `
+    //             <li>
+    //                 <h2>${post.title}</h2>
+    //                 <p>${post.content}</p>
+    //                 <img src="${post.image}" alt="${post.title}" style="width:200px;height:auto;">
+    //             </li>
+    //         `).join('')}
+    //     </ul>
+    // `;
     //res.send(markup);
-    res.json(posts)
+    res.json({
+        data: posts,
+        counter: posts.length
+    })
 };
 
 

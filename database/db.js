@@ -1,4 +1,4 @@
-module.exports =[
+module.exports = [
     {
         "title": "Ciambellone",
         "slug": "ciambellone",
@@ -57,6 +57,4 @@ module.exports =[
             "Ricette al forno"
         ]
     },
-    {},
-    {}
 ]
